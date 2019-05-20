@@ -106,7 +106,11 @@ app.get('/article', function (req, res) {
 
 app.get('/', function (req, res) {
     
+<<<<<<< HEAD
   res.send('Hello World xxxxx ...')
+=======
+  res.send('Hello World yyyyyy ...')
+>>>>>>> master
 })
 
 app.get('/article', (req, res) => {
