@@ -51,7 +51,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/article', (req, res) => {
-    console.log(req.body)
+    
     if(typeof req.body.title === 'undefined'){
         return res.json(_error('Title field is required'))
         /*return res.json({
@@ -105,12 +105,12 @@ app.get('/article', function (req, res) {
 
 
 app.get('/', function (req, res) {
-    console.log('Incoming Request', req)
+    
   res.send('Hello World...')
 })
 
 app.get('/article', (req, res) => {
-    console.log(req.params)
+    
   res.send('Article....')
 })
 
