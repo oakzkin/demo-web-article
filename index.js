@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient
 const bodyParser = require('body-parser')
 
 // Connection URL
-const url = 'mongodb+srv://admin01:admin01@demo-xns1t.mongodb.net/test?retryWrites=true'
+const url = process.env.MONGO.URL
 
 // Create a new MongoClient
 const client = new MongoClient(url)
