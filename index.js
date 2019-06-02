@@ -15,20 +15,23 @@ const dbName = 'article'
 let articleCollection = null
 
 // Use connect method to connect to the Server
-client.connect(function(err) {
+const connectMongo = () => {
+    client.connect(function(err) {
     
-    if(err){
-        console.log('connect fail')
-        return
-    }
-    console.log("Connected successfully to server");
-  
-    const db = client.db(dbName);
-    // Get the documents collection
-    articleCollection = db.collection('article'); // collection = table
-    
-  
-  });
+        if(err){
+            console.log('connect fail', err)
+            setTimeout(connectMongo, 5000)
+            return
+        }
+        console.log("Connected successfully to server");
+      
+        const db = client.db(dbName);
+        // Get the documents collection
+        articleCollection = db.collection('article'); // collection = table
+        
+      
+      });
+}
 
 
   
@@ -115,4 +118,7 @@ app.get('/article', (req, res) => {
 })
 
 
-app.listen(3000)
+setTimeout(connectMongo, 5000)
+
+
+app.listen(process.env.PORT || 3000)
